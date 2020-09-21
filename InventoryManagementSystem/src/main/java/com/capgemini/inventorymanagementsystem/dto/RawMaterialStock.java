@@ -1,7 +1,7 @@
 package com.capgemini.inventorymanagementsystem.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
-
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,11 +11,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="productstock3")
-public class ProductStock {	
-	@Id
-	 @Column(name="orderid")
-	 int orderId;
+@Table(name="rawmaterialstock")
+public class RawMaterialStock {
+	 @Id	
+	   @Column(name="orderid")
+	   int orderId;
 	 @Column(name="name")
 	 String Name;
 	 @Column(name="price_per_unit")
@@ -39,17 +39,14 @@ public class ProductStock {
 	 Date expiryDate;
 	 @Column(name="qualitycheck")
 	 String qualityCheck;
-	 @Column(name="exitdate")
+	 @Column(name="processdate")
 	 @Temporal(value=TemporalType.TIMESTAMP)
-	 Date exitDate;
-	 
-	  
-	 public ProductStock() {}
-	public ProductStock(int orderId,String name, int quantityValue, double pricePerUnit, int quantityUnit,
+	 Date processDate;
+	 public RawMaterialStock() {}
+	public RawMaterialStock(int orderId, String name, int quantityValue, double pricePerUnit, int quantityUnit,
 			double price, String warehouseId, Date deliveryDate, Date manufacturingDate, Date expiryDate,
-			String qualityCheck, Date exitDate) {
+			String qualityCheck, Date processDate) {
 		super();
-		
 		this.orderId = orderId;
 		this.Name = name;
 		this.quantityValue = quantityValue;
@@ -61,8 +58,7 @@ public class ProductStock {
 		this.manufacturingDate = manufacturingDate;
 		this.expiryDate = expiryDate;
 		this.qualityCheck = qualityCheck;
-		this.exitDate = exitDate;
-		
+		this.processDate = processDate;
 	}
 	public int getOrderId() {
 		return orderId;
@@ -130,13 +126,12 @@ public class ProductStock {
 	public void setQualityCheck(String qualityCheck) {
 		this.qualityCheck = qualityCheck;
 	}
-	public Date getExitDate() {
-		return exitDate;
+	public Date getProcessDate() {
+		return processDate;
 	}
-	public void setExitDate(Date exitDate) {
-		this.exitDate = exitDate;
+	public void setProcessDate(Date processDate) {
+		this.processDate =processDate;
 	}
-	
 
 
 }
